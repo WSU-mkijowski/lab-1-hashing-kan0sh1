@@ -1,22 +1,18 @@
 #!/bin/bash
 
+## have to split the sequence for the nonce apart. 
+## when the nonce seq is too wide causes my laptop to abort mission and crash.
+## also updated dictionary file with more words to search.
+## Ranges I found success with: 10 to 9999, 10000 to 99999,
 
-echo "Starting this script (hopefully it is executable with chmod a+x ./miner.sh)"
-
-VARIABLE=some_string
-
-echo $VARIABLE
-
-## Prints all words in provided dictionary
-## (you might want to find a bigger dictionary)
 for i in $(cat ../data/dictionary); do
-  printf $i
+   for x in $(seq 10 9999); do
+           crypto_key=$(echo -n "$x$i" | sha256sum | awk '{print $1}')
+      if [[ "$crypto_key" =~ ^0000 ]]; then
+          echo "Winning hash: $crypto_key From word $x$i"
+      fi
+   done
 done
 
 
-## prints all numbers between 100 and 105
-for i in $(seq 100 105); do
-  printf $i
-done
-
-
+echo "end of script."

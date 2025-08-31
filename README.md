@@ -10,14 +10,14 @@
 Answer the following in this file:
 
 * How many unique users are in the data? 42
-* How many salts did you create?
+* How many salts did you create? 42
 * How many possible combinations will I need to try to figure out the secret ID
   of all students (assume I know all potential secret IDs and have your 
-  `salted-data.csv`)
+  `salted-data.csv`) - 903
 * Instead of salts, if you were to use a nonce (unique number for each hashed
-  field) how many possible combinations would I need to try?
+  field) how many possible combinations would I need to try? 848,103
 * Given the above, if this quiz data were *actual* class data, say for example
-  your final exam, how would you store this dataset?  Why?
+  your final exam, how would you store this dataset?  Why? If the data was of utmost secrecy I would likely use a salt and a nonce in comnination. This would only further increase the number of attempts to crack who is who. Ultimately the nonces would need to be much more randomly generated than if they were to simply incrememnt by 1 digit every iteration of the same hash.
 
 ```bash
 cat quiz_data.csv | tail -n +2 | awk -F ',' '{print $1}' | sort | uniq | nl 
