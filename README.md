@@ -9,7 +9,7 @@
 
 Answer the following in this file:
 
-* How many unique users are in the data?
+* How many unique users are in the data? 42
 * How many salts did you create?
 * How many possible combinations will I need to try to figure out the secret ID
   of all students (assume I know all potential secret IDs and have your 
@@ -20,8 +20,8 @@ Answer the following in this file:
   your final exam, how would you store this dataset?  Why?
 
 ```bash
-please put any cool bash one-liners or other piped commands you
-learned/struggled with for task 1 here
+cat quiz_data.csv | tail -n +2 | awk -F ',' '{print $1}' | sort | uniq | nl 
+
 ```
 
 ---
