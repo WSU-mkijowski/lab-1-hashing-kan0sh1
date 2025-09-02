@@ -15,4 +15,5 @@ for i in $(cat ../data/dictionary); do
 done
 
 
+## simple message to show code has completed its run.
 echo "end of script."

@@ -17,7 +17,7 @@ Answer the following in this file:
 * Instead of salts, if you were to use a nonce (unique number for each hashed
   field) how many possible combinations would I need to try? 848,103
 * Given the above, if this quiz data were *actual* class data, say for example
-  your final exam, how would you store this dataset?  Why? If the data was of utmost secrecy I would likely use a salt and a nonce in comnination. This would only further increase the number of attempts to crack who is who. Ultimately the nonces would need to be much more randomly generated than if they were to simply incrememnt by 1 digit every iteration of the same hash.
+  your final exam, how would you store this dataset?  Why? If the data was of utmost secrecy I would likely use a salt and a nonce in comnination. This would only further increase the number of attempts to crack who is who. Ultimately the nonces would need to be much more randomly generated than if they were to simply incrememnt by 1 digit every iteration of the same hash. A further option could be to have completely randomized names for the individuals. Names that only you have access to or can remember. A much more simple but archaic method could also include not having this data available in any physical form for someone to reach. Oldschool paper method.
 
 ```bash
 cat quiz_data.csv | tail -n +2 | awk -F ',' '{print $1}' | sort | uniq | nl 
@@ -37,6 +37,8 @@ Answer the following:
 hash)
 
 ```
+21397horse
+35946beehive
 
 ```
 
