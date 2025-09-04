@@ -9,15 +9,38 @@
 
 Answer the following in this file:
 
-* How many unique users are in the data? 42
-* How many salts did you create? 42
+* How many unique users are in the data?
+
+  42
+
+* How many salts did you create?
+
+  42
+
 * How many possible combinations will I need to try to figure out the secret ID
   of all students (assume I know all potential secret IDs and have your 
-  `salted-data.csv`) - 903
+  `salted-data.csv`)
+  
+    903
+
 * Instead of salts, if you were to use a nonce (unique number for each hashed
-  field) how many possible combinations would I need to try? 848,103
+  field) how many possible combinations would I need to try?
+  
+  Assuming you knew the nonces as well, the max would be 848,253
+
 * Given the above, if this quiz data were *actual* class data, say for example
-  your final exam, how would you store this dataset?  Why? If the data was of utmost secrecy I would likely use a salt and a nonce in comnination. This would only further increase the number of attempts to crack who is who. Ultimately the nonces would need to be much more randomly generated than if they were to simply incrememnt by 1 digit every iteration of the same hash. A further option could be to have completely randomized names for the individuals. Names that only you have access to or can remember. A much more simple but archaic method could also include not having this data available in any physical form for someone to reach. Oldschool paper method.
+  your final exam, how would you store this dataset?  Why? 
+  
+  Several potential methods:
+  * Use the salt and nonce method.
+  * Hide usernames using codewords for the students, that only make sense to you.
+  * Old School paper charts only with extra physical security.
+
+  The salt and nonce method would drastically increase number of tries needed to figure out the persons behind each answer. 
+
+  Codewords only you know would remove any likelihood of someone ever managing to determine the student behind it so long as they were unique and had no way to cross check who is who.
+
+  Paper charting removes any ability for anyone online to grab and break data. This is obviously less desireable in this day and age. And still not completely fool proof as physical locks are also easily broken. 
 
 ```bash
 cat quiz_data.csv | tail -n +2 | awk -F ',' '{print $1}' | sort | uniq | nl 
