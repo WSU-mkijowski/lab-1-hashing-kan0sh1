@@ -66,12 +66,36 @@ hash)
 ```
 
 * How many words were in your dictionary?
-* How many nonces did your code iterate over?
-* What was the maximum number of hashes your code *could* compute given the above?
-* What did you think about Task 2?
-* Is there a better way than brute force to attempt to get higher valued coins?
-* Why or why not?
 
+  86
+
+* How many nonces did your code iterate over?
+
+  Initially I tried every nonce from 10-9,999,999,999... this was a poor choice, admittedly. 
+  
+  Working nonce ranges were:
+  * 10-9,999
+  * 1000-99,999
+
+  Further ranges were not attempted as the time consumption grew exponentially, and received good success on these ranges already.
+
+* What was the maximum number of hashes your code *could* compute given the above?
+
+  From the original attempt: 859,999,999,054(If it had worked)
+
+  From working attempts: 859,054 and 8,513,914 for a total of 9372968
+
+* What did you think about Task 2?
+
+  This was a fun and interesting task. It wasn't complicated, but did expose my computer to much more stress than I originally anticipated. Showed a little of how bitcoin mining works and why GPU are so in demand for doing so.
+
+* Is there a better way than brute force to attempt to get higher valued coins?
+
+  Theoretically. If someone were able to reverse the hashing algorithm then that would make it much better. 
+
+* Why or why not?
+  
+  Without the hashing algorithm reversal then it is just a game of running through the possible combinations and finding success. If there were a simpler way then the algorithm would have been cracked and useless in this regard.
 
 ```bash
 please put any cool bash one-liners or other piped commands you
